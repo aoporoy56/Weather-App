@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body{
+            background-color: rgb(190, 4, 4);
+            background: url(https://images.unsplash.com/photo-1549793959-284bccc3331b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fHNreXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60);
+            background-size: cover;
+        }
+        .deshboard{
+            padding: 100px 0px;
+        }
+        .deshboard .title{
+            text-align: center;
+            font-size: 40px;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .deshboard .search-box{
+            display: flex;
+            justify-content: center;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .deshboard .search-box .input-box{
+            padding: 15px 10px;
+            width: 500px;
+            outline: 0;
+            border-radius: 10px 0 0 10px;
+            border: 0;
+        }
+        .deshboard .search-box .button{
+            padding: 0px 20px;
+            border-radius: 0 10px 10px 0;
+            border: 0;
+            background-color: rgb(0, 149, 207);
+            color: white;
+            cursor: pointer;
+        }
+        .deshboard .temp-view{
+            display: flex;
+            width: 70%;
+            margin: 0 auto;
+            border: 1px solid;
+            background-color: rgba(0, 0, 0, 0.301);
+            color: white;
+            margin-top: 30px;
+            padding: 30px;
+        }
+        .deshboard .temp-view .left-side{
+            flex: 2;
+            display: flex;
+        }
+        .deshboard .temp-view .left-side .img-side{
+            flex: 1;
+            text-align: center;
+        }
+        .deshboard .temp-view .left-side .img-side h3{
+            font-weight: 400;
+            line-height: 30px;
+        }
+        .deshboard .temp-view .left-side .img-side span{
+            font-weight: bold;
+            font-size: 30px;
+        }
+        .deshboard .temp-view .left-side .img-side .img{
+            font-size: 100px;
+        }
+        .deshboard .temp-view .left-side .info-side{
+            flex: 1;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .deshboard .temp-view .left-side .info-side {
+            font-weight: 100;
+        }
+        .deshboard .temp-view .left-side .info-side span{
+            font-weight: bold;
+        }
+        .deshboard .temp-view .right-side{
+            flex: 1;
+        }
+        .deshboard .temp-view .right-side h1{
+            font-weight: 100;
+            text-align: center;
+            font-size: 60px;
+        }
+        .deshboard .temp-view .right-side .title-degree{
+            font-weight: bold;
+        }
+        .deshboard .temp-view .right-side .short-degree{
+            font-size: 20px;
+            font-weight: 200;
+        }
+        .deshboard .temp-view .right-side .location{
+            font-size: 30px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="deshboard">
+        <h1 class="title">Welcome To Weather App</h1>
+        <form method="get" action="">
+            <div class="search-box">
+                <input type="text" class="input-box" name="city_name" placeholder="Enter Your City Name...">
+                <input type="submit" value="Search" class="button" name="button">
+            </div>
+        </form>
+        <div class="temp-view">
+            <div class="left-side">
+                <div class="img-side">
+                    <div class="img">
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <h3>Current Condition : <span>{%condition%}</span></h3>
+                </div>
+                <div class="info-side">
+                    <div><i class="fa-solid fa-snowflake"></i> Precipitation : <span>{%precipitation%}%</span></div>
+                    <div><i class="fa-solid fa-cloud-bolt"></i> Humidity : <span>{%humidity%}%</span></div>
+                    <div><i class="fa-solid fa-wind"></i> Wind : <span>{%wind%} mhA</span></div>
+                </div>
+            </div>
+            <div class="right-side">
+                <h3 class="location">{%location%}</h3>
+                <h1 class="title-degree">{%temp%}<sup>o</sup>C</h1>
+                <h1 class="short-degree">Max <i class="fa-solid fa-arrow-up"></i> {%max%}<sup>o</sup>C | Min <i class="fa-solid fa-arrow-down"></i> {%min%}<sup>o</sup>C</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
